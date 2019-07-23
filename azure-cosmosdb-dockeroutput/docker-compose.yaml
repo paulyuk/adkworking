@@ -1,0 +1,13 @@
+version: "3.6"
+services:
+  bulletin-board:
+    build: bulletin-board
+    image: docker.io/bulletin-board
+    ports:
+    - 8081:8080
+    secrets:
+    - source: cosmos-connection
+      target: /app/config/cosmosDbConfig.js
+secrets:
+  cosmos-connection:
+    file: cosmos/cosmosDbConfig.js
